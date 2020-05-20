@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Character.h"
 
 // Health
@@ -60,4 +61,19 @@ int Character::get_xp(){
 // Other
 bool Character::is_dead(){
   return Character::get_health() <= 0;
+}
+
+void Character::create_character(){
+  std::string name;
+  int has_failed {false};
+
+  while(!set_name(name)){
+    if(has_failed)
+      std::cout << "Name must be between 3-14 characters... try again: ";
+    else
+      std::cout << "Please enter the name of your character: ";
+
+    std::cin >> name;
+    has_failed = !set_name(name);
+  }
 }

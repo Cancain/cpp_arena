@@ -28,6 +28,8 @@ class Character{
     int get_xp();
 
     bool is_dead();
+    
+    void create_character();
 };
 
 #endif
