@@ -7,8 +7,7 @@ int main(){
   Character player;
 
   player.create_character();
-
-  std::cout << player.get_name() << std::endl;
+  gameplay.set_player(player);
 
   return 0;
 }

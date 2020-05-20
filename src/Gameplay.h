@@ -8,7 +8,7 @@ class Gameplay{
     Character player;
 
   public:
-    void set_player(Character player);
+    bool set_player(Character player);
     Character get_player();
 };
 
