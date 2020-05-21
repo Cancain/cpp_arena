@@ -1,6 +1,5 @@
-#include "Gameplay.h"
-
 #include <map>
+#include "Gameplay.h"
 
 class Menu{
   private:
@@ -9,6 +8,7 @@ class Menu{
 
     void display_menu_options();
     char get_menu_input();
+    bool is_valid_menu_choice(char choice);
 
   public: 
     void main_menu();
