@@ -55,8 +55,8 @@ void Gameplay::set_game_state(GameState state){
 
 // Start/end game
 void Gameplay::main_loop(){
-  Menu menu(this);
-  menu.main_menu();
+  Menu *menu = new Menu(this);
+  menu->main_menu();
 }
 
 void Gameplay::start_game(){
