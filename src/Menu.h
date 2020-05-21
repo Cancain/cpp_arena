@@ -1,3 +1,6 @@
+#ifndef _MENU_H_
+#define _MENU_H_
+
 #include <map>
 #include "Gameplay.h"
 
@@ -26,3 +29,5 @@ class Menu{
       delete _gameplay;
     }
 };
+
+#endif
