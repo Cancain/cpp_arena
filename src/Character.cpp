@@ -1,6 +1,15 @@
 #include <iostream>
 #include "Character.h"
 
+//Strength
+int Character::get_strength(){
+  return _strength;
+}
+
+void Character::set_strength(int strength){
+  _strength = strength;
+}
+
 // Health
 int Character::get_health(){
   return _health;

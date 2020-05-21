@@ -5,12 +5,17 @@
 
 class Character{
   private: 
+    int _strength;
     int _health;
     int _stamina;
+
     std::string _name;
     int _xp;
 
   public:
+    int get_strength();
+    void set_strength(int strength);
+
     int get_health();
     void set_health(int health);
     void add_health(int health);
