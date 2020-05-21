@@ -88,6 +88,7 @@ void Character::create_character(){
 }
 
 void Character::default_character(){
+  _strength = 10;
   _health = 100;
   _stamina = 100;
   _name = "";

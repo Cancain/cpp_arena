@@ -20,3 +20,7 @@ bool Gameplay::set_player(Character new_player){
   _player = new_player;
   return true;
 }
+
+void Gameplay::main_loop(){
+
+}
