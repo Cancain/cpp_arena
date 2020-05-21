@@ -1,31 +1,41 @@
-#include "Gameplay.h"
 #include <iostream>
+#include "Gameplay.h"
+#include "Menu.h"
 
-Character Gameplay::get_player(){
-  return _player;
+// Player
+bool Gameplay::has_player(){
+    if(_player == nullptr) return false;
+    return true;
 }
+bool Gameplay::set_player(Character *player){
 
-bool Gameplay::set_player(Character new_player){
-
-  if(new_player.get_name() == ""){
+  if(player->get_name() == ""){
     throw "expected player name";
     return false;
   }
 
-  while(new_player.is_dead()){
+  while(player->is_dead()){
     std::cout << "Your player is dead, creating a new one..." << std::endl;
-    new_player.create_character();
+    player->create_character();
   }
 
-  _player = new_player;
+  _player = player;
   return true;
 }
 
+// Game state
+GameState Gameplay::get_game_state(){
+  return _current_state;
+}
+
+void Gameplay::set_game_state(GameState state){
+  _current_state = state;
+}
+
+// Start/end game
 void Gameplay::main_loop(){
-  while(_game_on){
-    std::cout << "main_loop" << std::endl;
-    end_game();
-  }
+  Menu menu(this);
+  menu.main_menu();
 }
 
 void Gameplay::start_game(){
@@ -36,7 +46,3 @@ void Gameplay::start_game(){
 void Gameplay::end_game(){
   _game_on = false;
 }
-
-
-// Constructors
-
