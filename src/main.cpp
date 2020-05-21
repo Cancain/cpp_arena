@@ -9,6 +9,8 @@ int main(){
   player->create_character();
   gameplay.set_player(*player);
   
+  gameplay.start_game();
+
   delete player;
 
   return 0;

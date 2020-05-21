@@ -22,5 +22,21 @@ bool Gameplay::set_player(Character new_player){
 }
 
 void Gameplay::main_loop(){
-
+  while(_game_on){
+    std::cout << "main_loop" << std::endl;
+    end_game();
+  }
 }
+
+void Gameplay::start_game(){
+  _game_on = true;
+  main_loop();
+}
+
+void Gameplay::end_game(){
+  _game_on = false;
+}
+
+
+// Constructors
+
