@@ -6,7 +6,12 @@ class Menu{
 
   public: 
     void main_menu();
+
     Menu(Gameplay *gameplay){
       _gameplay = gameplay;
+    }
+
+    ~Menu(){
+      delete _gameplay;
     }
 };

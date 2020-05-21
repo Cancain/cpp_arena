@@ -3,10 +3,6 @@
 #include "Menu.h"
 
 // Player
-bool Gameplay::has_player(){
-    if(_player == nullptr) return false;
-    return true;
-}
 bool Gameplay::set_player(Character *player){
 
   if(player->get_name() == ""){
@@ -21,6 +17,31 @@ bool Gameplay::set_player(Character *player){
 
   _player = player;
   return true;
+}
+
+bool Gameplay::has_player(){
+    if(_player == nullptr) return false;
+    return true;
+}
+
+void Gameplay::set_player_name_from_input(Character *player){
+  std::string name;
+
+  std::cout << 
+    "Please enter the name of your new character: ";
+  std::cin >> name;
+
+  while(!player->set_name(name)){
+    std::cout << 
+      "Character name must be between 3 and 14 characters long\n Please try again: ";
+    std::cin >> name;
+  }
+}
+
+void Gameplay::create_character(){
+  Character *player = new Character();
+  set_player_name_from_input(player);
+  _player = player;
 }
 
 // Game state
