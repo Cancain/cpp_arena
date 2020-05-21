@@ -3,64 +3,64 @@
 
 // Health
 int Character::get_health(){
-  return health;
+  return _health;
 };
 
 void Character::set_health(int health){
-  Character::health = health;
+  _health = health;
 }
 
 void Character::add_health(int health){
-  Character::health += health;
+  _health += health;
 }
 
 void Character::subtract_health(int health){
-  Character::health -= health;
+  _health -= health;
 }
 
 // Stamina
 int Character::get_stamina(){
-  return Character::stamina;
+  return _stamina;
 }
 
 void Character::set_stamina(int stamina){
-  Character::stamina = stamina;
+  _stamina = stamina;
 }
 
 void Character::add_stamina(int stamina){
-  Character::stamina += stamina;
+  _stamina += stamina;
 }
 
 void Character::subtract_stamina(int stamina){
-  Character::stamina -= stamina;
+  _stamina -= stamina;
 }
 
 // Name
 bool Character::set_name(std::string name){
   if(name.length() >= 3 && name.length() < 14){
-    Character::name = name;
+    _name = name;
     return true;
   }
   return false;
 }
 
 std::string Character::get_name(){
-  return Character::name;
+  return _name;
 }
 
 
 // XP
 void Character::add_xp(int xp){
-  Character::xp += xp;
+  _xp += xp;
 }
 
 int Character::get_xp(){
-  return Character::xp;
+  return _xp;
 }
 
 // Other
 bool Character::is_dead(){
-  return Character::get_health() <= 0;
+  return get_health() <= 0;
 }
 
 void Character::create_character(){
@@ -76,4 +76,11 @@ void Character::create_character(){
     std::cin >> name;
     has_failed = !set_name(name);
   }
+}
+
+void Character::default_character(){
+  _health = 100;
+  _stamina = 100;
+  _name = "";
+  _xp = 0;
 }

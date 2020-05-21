@@ -5,10 +5,10 @@
 
 class Character{
   private: 
-    int health {100};
-    int stamina {100};
-    std::string name {};
-    int xp {0};
+    int _health;
+    int _stamina;
+    std::string _name;
+    int _xp;
 
   public:
     int get_health();
@@ -30,6 +30,17 @@ class Character{
     bool is_dead();
     
     void create_character();
+
+    void default_character();
+
+    Character(){
+      default_character();
+    }
+
+    Character(std::string name){
+      default_character();
+      _name = name;
+    };
 };
 
 #endif

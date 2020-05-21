@@ -5,7 +5,7 @@
 
 class Gameplay{
   private:
-    Character player;
+    Character _player;
 
   public:
     bool set_player(Character player);

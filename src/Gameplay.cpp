@@ -2,7 +2,7 @@
 #include <iostream>
 
 Character Gameplay::get_player(){
-  return player;
+  return _player;
 }
 
 bool Gameplay::set_player(Character new_player){
@@ -17,6 +17,6 @@ bool Gameplay::set_player(Character new_player){
     new_player.create_character();
   }
 
-  player = new_player;
+  _player = new_player;
   return true;
 }
