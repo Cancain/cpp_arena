@@ -6,9 +6,10 @@ class Menu{
     Gameplay *_gameplay;
     std::map<const char, std::string> _options;
 
-    void display_menu_options();
-    char get_menu_input();
-    bool is_valid_menu_choice(char choice);
+    void _display_menu_options();
+    char _get_menu_input();
+    bool _is_valid_menu_choice(char choice);
+    void _start_fight();
 
   public: 
     void main_menu();
@@ -18,6 +19,7 @@ class Menu{
 
       _options['c'] = "Create new character";
       _options['f'] = "Fight!";
+      _options['q'] = "Quit";
     }
 
     ~Menu(){

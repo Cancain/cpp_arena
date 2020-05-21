@@ -4,12 +4,13 @@
 #include <map>
 
 #include "Menu.h"
+#include "Fight.h"
 
 using std::cout;
 using std::cin;
 using std::endl;
 
-void Menu::display_menu_options(){
+void Menu::_display_menu_options(){
   int i {0};
   int options_size {(int)_options.size()};
 
@@ -29,7 +30,7 @@ void Menu::display_menu_options(){
   cout << endl;
 }
 
-bool Menu::is_valid_menu_choice(char choice){
+bool Menu::_is_valid_menu_choice(const char choice){
   bool choice_exists {false};
 
   for(auto &option : _options){
@@ -40,22 +41,28 @@ bool Menu::is_valid_menu_choice(char choice){
   return choice_exists;
 }
 
-char Menu::get_menu_input(){
+char Menu::_get_menu_input(){
   bool successful_input {false};
   char input;
   while(!successful_input){
     cin >> input;
 
-    if(is_valid_menu_choice(input)) {
+    if(_is_valid_menu_choice(input)) {
       successful_input = true;
     } else {
       cout << "Please enter an option from the menu" << endl;
-      display_menu_options();
+      _display_menu_options();
       cin.clear();
     }
   }
 
   return input;
+}
+
+void Menu::_start_fight(){
+  Character *opponent = new Character("Enemy");
+  Fight fight(_gameplay->get_player(), opponent);
+  fight.fight();
 }
 
 void Menu::main_menu(){
@@ -66,6 +73,16 @@ void Menu::main_menu(){
     _gameplay->create_character();
   }
 
-  display_menu_options();
-  char input {get_menu_input()};
+  _display_menu_options();
+  const char input {_get_menu_input()};
+
+  switch(input){
+    case 'c':
+      _gameplay->create_character();
+      main_menu();
+      break;
+    case 'f':
+      _start_fight();
+      break;
+  }
 }

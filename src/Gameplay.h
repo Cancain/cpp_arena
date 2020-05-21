@@ -32,6 +32,7 @@ class Gameplay{
 
     // Player
     bool set_player(Character *player);
+    Character* get_player();
     bool has_player();
     void create_character();
 
