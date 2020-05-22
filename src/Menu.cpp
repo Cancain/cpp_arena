@@ -60,7 +60,7 @@ char Menu::_get_menu_input(){
 }
 
 void Menu::_start_fight(){
-  Character *opponent = new Character("Enemy");
+  Character *opponent = new Character(false, "Enemy");
   Fight fight(_gameplay->get_player(), opponent);
   fight.fight();
 }

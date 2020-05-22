@@ -67,6 +67,15 @@ int Character::get_xp(){
   return _xp;
 }
 
+// Is_player
+ bool Character::is_player(){
+   return _is_player;
+ } 
+
+void Character::set_is_player(bool is_player){
+  _is_player = is_player;
+}
+
 // Other
 bool Character::is_dead(){
   return get_health() <= 0;
@@ -89,12 +98,13 @@ void Character::create_character(){
 
 // Constructors
   Character::Character(
+      bool is_player,
       std::string name, 
       int strength,
       int health,
       int stamina,
       int xp
       )
-    : _name{name},_strength{strength}, _health{health}, _stamina{stamina}, _xp{xp}{
+    : _is_player{is_player}, _name{name},  _strength{strength}, _health{health}, _stamina{stamina}, _xp{xp}{
 
     }

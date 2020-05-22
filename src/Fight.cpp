@@ -63,9 +63,12 @@ void Fight::fight(){
     get_turn_order(characters, turn_order);
     std::vector<CharacterInitiative> sorted_turn_order;
     sorted_turn_order = get_next_character(turn_order);
-    int order_index {0};
+    int num_of_rounds {0};
 
+    for(auto character : sorted_turn_order){
+      std::cout << character.character.get_name() << " is up" << std::endl;
 
+    }
 
     characters[0].set_health(0);
   }

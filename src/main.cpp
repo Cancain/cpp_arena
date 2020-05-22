@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Character.h"
 #include "Gameplay.h"
 
 int main(){

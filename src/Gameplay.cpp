@@ -44,7 +44,7 @@ void Gameplay::set_player_name_from_input(Character *player){
 
 void Gameplay::create_character(){
   delete _player;
-  Character *player = new Character();
+  Character *player = new Character(true);
   set_player_name_from_input(player);
   _player = player;
 }

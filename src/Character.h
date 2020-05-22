@@ -10,8 +10,15 @@ class Character{
     int _health;
     int _stamina;
     int _xp;
+    bool _is_player;
 
   public:
+    bool is_player();
+    void set_is_player(bool is_player);
+
+    bool set_name(std::string name);    
+    std::string get_name();
+
     int get_strength();
     void set_strength(int strength);
 
@@ -25,17 +32,17 @@ class Character{
     void add_stamina(int stamina);
     void subtract_stamina(int stamina);
 
-    bool set_name(std::string name);    
-    std::string get_name();
 
     void add_xp(int xp);
     int get_xp();
+
 
     bool is_dead();
     
     void create_character();
 
     Character(
+        bool is_player = false,
         std::string name = "", 
         int strength = 10, 
         int health = 100, 
