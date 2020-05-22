@@ -87,10 +87,14 @@ void Character::create_character(){
   }
 }
 
-void Character::default_character(){
-  _strength = 10;
-  _health = 100;
-  _stamina = 100;
-  _name = "";
-  _xp = 0;
-}
+// Constructors
+  Character::Character(
+      std::string name, 
+      int strength,
+      int health,
+      int stamina,
+      int xp
+      )
+    : _name{name},_strength{strength}, _health{health}, _stamina{stamina}, _xp{xp}{
+
+    }

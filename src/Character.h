@@ -5,11 +5,10 @@
 
 class Character{
   private: 
+    std::string _name;
     int _strength;
     int _health;
     int _stamina;
-
-    std::string _name;
     int _xp;
 
   public:
@@ -36,16 +35,12 @@ class Character{
     
     void create_character();
 
-    void default_character();
-
-    Character(){
-      default_character();
-    }
-
-    Character(std::string name){
-      default_character();
-      _name = name;
-    };
+    Character(
+        std::string name = "", 
+        int strength = 10, 
+        int health = 100, 
+        int stamina = 100, 
+        int xp = 0);
 };
 
 #endif
