@@ -37,16 +37,10 @@ class Gameplay{
     void create_character();
 
     // Constructors
-    Gameplay(){
-      _current_state = menu;
-      _player = nullptr;
-      start_game();
-    }
+    Gameplay();
 
     //Deconstructor
-    ~Gameplay(){
-      delete _player;
-    }
+    ~Gameplay();
 };
 
 

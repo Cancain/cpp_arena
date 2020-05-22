@@ -86,3 +86,16 @@ void Menu::main_menu(){
       break;
   }
 }
+
+//Constructors
+Menu::Menu(Gameplay *gameplay)
+    :_gameplay{gameplay}{
+      _options['c'] = "Create new character";
+      _options['f'] = "Fight!";
+      _options['q'] = "Quit";
+    }
+
+//Deconstructor
+Menu::~Menu(){
+  delete _gameplay;
+}

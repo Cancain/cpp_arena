@@ -9,3 +9,7 @@ void Fight::fight(){
     << _opponent->get_name() 
     << std::endl;
 }
+
+// Constructors
+  Fight::Fight(Character *player, Character *opponent)
+    :_player{player}, _opponent{opponent}{}

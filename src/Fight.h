@@ -11,10 +11,7 @@ class Fight{
   public:
     void fight();
 
-    Fight(Character *player, Character *opponent){
-      _player = player;
-      _opponent = opponent;
-    }
+    Fight(Character *player, Character *opponent);
 
 };
 

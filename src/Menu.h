@@ -17,17 +17,8 @@ class Menu{
   public: 
     void main_menu();
 
-    Menu(Gameplay *gameplay){
-      _gameplay = gameplay;
-
-      _options['c'] = "Create new character";
-      _options['f'] = "Fight!";
-      _options['q'] = "Quit";
-    }
-
-    ~Menu(){
-      delete _gameplay;
-    }
+    Menu(Gameplay *gameplay);
+    ~Menu();
 };
 
 #endif

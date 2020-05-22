@@ -72,3 +72,14 @@ void Gameplay::start_game(){
 void Gameplay::end_game(){
   _game_on = false;
 }
+
+// Constructors
+  Gameplay::Gameplay(){
+      _player = nullptr;
+      _current_state = menu;
+    }
+
+// Deconstructor
+  Gameplay::~Gameplay(){
+    delete _player;
+  }
