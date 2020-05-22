@@ -4,6 +4,11 @@
 #include "Character.h"
 #include <map>
 
+struct CharacterInitiative {
+  int initiative;
+  Character character;
+};
+
 class Fight{
   private:
     Character *_player;
@@ -11,7 +16,9 @@ class Fight{
 
     void annouce_fight();
     void get_turn_order(
-        std::map<int, Character> *turn_order
+        Character *characters,
+        CharacterInitiative *turn_order,
+        size_t turn_order_size = 2
         );
 
 

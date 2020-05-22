@@ -14,27 +14,33 @@ void Fight::annouce_fight(){
 }
 
 void Fight::get_turn_order(
-    std::map<int, Character> *turn_order
+      Character *characters,
+      CharacterInitiative *turn_order,
+      size_t turn_order_size
     ){
-    srand(time(nullptr));
 
-    for(auto &character : *turn_order){
-      std::cout << character.second.get_stamina() << std::endl;
-    }
+    srand(time((nullptr)));
+  for(size_t i {0}; i < turn_order_size; ++i){
+
+    CharacterInitiative newInitiative = {
+      rand() % characters[i].get_stamina(),
+      characters[i]
+    };
+
+    turn_order[i] = newInitiative;
+  }
+
 }
 
 void Fight::fight(){
   annouce_fight();
+  Character characters[2] {*_player, *_opponent};
   bool fight_on = !_player->is_dead() || !_opponent->is_dead();
-  std::map<int, Character> turn_order;
-  turn_order[0] = *_player;
-  turn_order[1] = *_opponent;
 
-  get_turn_order(&turn_order);
+  CharacterInitiative turn_order[2];
+  get_turn_order(characters, turn_order);
   
 }
-
-
 
 // Constructors
   Fight::Fight(Character *player, Character *opponent)
