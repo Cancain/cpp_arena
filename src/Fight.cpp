@@ -18,27 +18,41 @@ void Fight::get_turn_order(
       CharacterInitiative *turn_order,
       size_t turn_order_size
     ){
-
     srand(time((nullptr)));
-  for(size_t i {0}; i < turn_order_size; ++i){
 
-    CharacterInitiative newInitiative = {
-      rand() % characters[i].get_stamina(),
-      characters[i]
-    };
+    for(size_t i {0}; i < turn_order_size; ++i){
+      CharacterInitiative newInitiative = {
+        rand() % characters[i].get_stamina(),
+        characters[i]
+      };
 
-    turn_order[i] = newInitiative;
-  }
+      turn_order[i] = newInitiative;
+    }
 
 }
 
+bool fight_on(Character *characters, const size_t size = 2){
+    for(size_t i {0}; i < size; ++i){
+      if(characters[i].is_dead()) return false;
+    }
+    return true;
+}
+
 void Fight::fight(){
-  annouce_fight();
+
   Character characters[2] {*_player, *_opponent};
-  bool fight_on = !_player->is_dead() || !_opponent->is_dead();
 
   CharacterInitiative turn_order[2];
-  get_turn_order(characters, turn_order);
+
+  annouce_fight();
+
+  while(fight_on(characters, 2)) {
+    get_turn_order(characters, turn_order);
+    std::cout << turn_order[0].initiative << std::endl;
+    std::cout << turn_order[1].initiative << std::endl;
+
+    characters[0].set_health(0);
+  }
   
 }
 
