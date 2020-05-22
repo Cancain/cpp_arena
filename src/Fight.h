@@ -7,6 +7,9 @@
 struct CharacterInitiative {
   int initiative;
   Character character;
+  bool operator< (const CharacterInitiative other) const {
+    return initiative < other.initiative;
+  }
 };
 
 class Fight{

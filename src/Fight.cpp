@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <vector>
+#include <bits/stdc++.h>
 
 #include "Fight.h"
 
@@ -38,6 +40,17 @@ bool fight_on(Character *characters, const size_t size = 2){
     return true;
 }
 
+std::vector<CharacterInitiative> get_next_character(CharacterInitiative const *characters, const size_t size = 2){
+  std::vector<CharacterInitiative> turn_order;
+  for(size_t i {0}; i < size; ++i){
+    turn_order.push_back(characters[i]);
+  }
+
+  std::sort(turn_order.begin(), turn_order.end());
+
+  return turn_order;
+}
+
 void Fight::fight(){
 
   Character characters[2] {*_player, *_opponent};
@@ -48,8 +61,11 @@ void Fight::fight(){
 
   while(fight_on(characters, 2)) {
     get_turn_order(characters, turn_order);
-    std::cout << turn_order[0].initiative << std::endl;
-    std::cout << turn_order[1].initiative << std::endl;
+    std::vector<CharacterInitiative> sorted_turn_order;
+    sorted_turn_order = get_next_character(turn_order);
+    int order_index {0};
+
+
 
     characters[0].set_health(0);
   }
