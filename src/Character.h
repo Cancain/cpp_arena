@@ -3,6 +3,12 @@
 
 #include <string>
 
+enum Attribute{
+  strength,
+  health,
+  stamina,
+};
+
 class Character{
   private: 
     std::string _name;
